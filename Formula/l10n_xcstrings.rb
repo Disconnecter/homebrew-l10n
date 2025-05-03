@@ -4,7 +4,7 @@ class L10nXcstrings < Formula
   desc "Generate Swift code from xcstrings files"
   homepage "https://github.com/Disconnecter/L10nXcstrings"
   url "https://github.com/Disconnecter/L10nXcstrings/archive/refs/tags/0.0.1.tar.gz"
-  sha256 "8786d36cc6cb145c0cb2a392e9c9915600a53e649416e24acb62de43be76dd91"
+  sha256 "505644a5838a81450fce5de72f4c844e8034be5ab4ea84af658c992c5291358a"
   license "MIT"
   head "https://github.com/Disconnecter/L10nXcstrings.git", branch: "main"
 
