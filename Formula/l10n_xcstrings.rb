@@ -4,7 +4,6 @@ class L10nXcstrings < Formula
   desc "Localization tool for xcstrings"
   homepage "https://github.com/Disconnecter/L10nXcstrings"
   url "https://github.com/Disconnecter/L10nXcstrings/archive/refs/tags/0.0.1.tar.gz"
-  sha256 "505644a5838a81450fce5de72f4c844e8034be5ab4ea84af658c992c5291358a"
   license "MIT"
 
   depends_on "python@3.11"
