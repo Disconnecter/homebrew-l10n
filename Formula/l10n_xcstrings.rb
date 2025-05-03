@@ -1,25 +1,30 @@
 class L10nXcstrings < Formula
   include Language::Python::Virtualenv
 
-  desc "Localization tool for xcstrings"
+  desc "Generate Swift code from xcstrings files"
   homepage "https://github.com/Disconnecter/L10nXcstrings"
   url "https://github.com/Disconnecter/L10nXcstrings/archive/refs/tags/0.0.1.tar.gz"
+  sha256 "8786d36cc6cb145c0cb2a392e9c9915600a53e649416e24acb62de43be76dd91"
   license "MIT"
+  head "https://github.com/Disconnecter/L10nXcstrings.git", branch: "main"
 
   depends_on "python@3.11"
 
   def install
-    # Unpack into buildpath directly (flatten)
-    system "tar", "-xzf", "L10nXcstrings-0.0.1.tar.gz", "-C", buildpath, "--strip-components=1"
+    tarball = cached_download
+    build_dir = buildpath/"src"
 
-    system "#{Formula["python@3.11"].opt_bin}/python3", "-m", "venv", libexec
-    system libexec/"bin/python", "-m", "pip", "install", ".", "--no-deps"
-    bin.install_symlink libexec/"bin/l10n-xcstrings"
+    # Extract archive and strip the top-level folder
+    system "tar", "-xzf", tarball, "-C", build_dir, "--strip-components=1"
+
+    cd build_dir do
+      venv = virtualenv_create(libexec, "python3.11")
+      venv.pip_install_and_link buildpath/"src"
+    end
   end
 
   test do
-    system "#{bin}/l10n-xcstrings", "--help"
+    output = shell_output("#{bin}/l10n-xcstrings --help")
+    assert_match "usage", output
   end
 end
-
-
