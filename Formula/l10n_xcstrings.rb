@@ -3,8 +3,8 @@ class L10nXcstrings < Formula
 
   desc "Generate Swift localization code from .xcstrings"
   homepage "https://github.com/Disconnecter/L10nXcstrings"
-  url "https://github.com/Disconnecter/L10nXcstrings/archive/refs/tags/0.0.1.tar.gz"
-  sha256 "d94b67ce40b61d6ef99b00d7284ab9da95f6663b9a95e364c31b2b4f0a528700"
+  url "https://github.com/Disconnecter/L10nXcstrings/archive/refs/tags/0.0.2.tar.gz"
+  sha256 "c34b32a9e7dbe8e6b1d373e637d4f2d7f4a086ff804a77b11cbc307a6a1756bf"
   license "MIT"
 
   depends_on "python@3.11"
